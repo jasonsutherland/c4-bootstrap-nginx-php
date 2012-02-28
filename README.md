@@ -9,7 +9,6 @@ A simple way to deploy a NGINX + PHP5-FPM environment to replicate a channel4.co
 2. Install git so you can clone the repository:
 ```bash
 sudo apt-get update
-
 sudo apt-get install git-core
 ```
 3. Clone the c4-bootstrap-php repo onto your server:
@@ -19,7 +18,6 @@ git clone https://github.com/channel4/c4-bootstrap.git
 4. Now run the bootstrap script to set up the environment:
 ```bash
 cd c4-bootstrap-php
-
 sudo ../bootstrap.sh
 ```
 5. Now you can make changes to the system by following the working directories and scripting guides.
