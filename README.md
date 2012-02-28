@@ -7,18 +7,20 @@ A simple way to deploy a NGINX + PHP5-FPM environment to replicate a channel4.co
 1. Start your Ubuntu 10.04 LTS Server.
 
 2. Install git so you can clone the repository:
-    sudo apt-get update
-    sudo apt-get install git-core
-
+```
+sudo apt-get update
+sudo apt-get install git-core
+```
 3. Clone the c4-bootstrap-php repo onto your server:
-    git clone https://github.com/channel4/c4-bootstrap.git
-
+```
+git clone https://github.com/channel4/c4-bootstrap.git
+```
 4. Now run the bootstrap script to set up the environment:
-    cd c4-bootstrap-php
-    sudo ../bootstrap.sh
-
+```
+cd c4-bootstrap-php
+sudo ../bootstrap.sh
+```
 5. Now you can make changes to the system by following the working directories guide
-
 
 ##HOWTO c4-repack
 
@@ -47,8 +49,10 @@ Any tweaks to the NGINX settings are made here. There is also a example HTTPS co
 
 You can tweak php.ini here, as this setup uses fpm please edit the file in **/etc/php5/fpm/**
 
-##Adding new dependancies
-If you wish to install new dependancies on the server via apt-get we recomend you build a script in the **~/c4-bootstrap-php/scripts/pre.d/** folder and then re-run **./bootstrap.sh**. Doing this will ensure that when a clean system is built the dependancies get installed at bootstrap. An example script to install new packages would be:
+##Scripting
+If you wish to install new dependancies or preform extra options on the server at boottime we recomend you build a script. For installing new dependancies using apt-get the use **~/c4-bootstrap-php/scripts/pre.d/** folder and then re-run **./bootstrap.sh**. Doing this will ensure that when a clean system is built the dependancies get installed at bootstrap. If you wish to preform actions on files after your environment is setup use the **~/c4-bootstrap-php/scripts/post.d/** folder.
+
+An example script to install new packages would be:
 
 ```bash
 #!/bin/bash
