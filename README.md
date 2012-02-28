@@ -30,6 +30,26 @@ sudo ./bootstrap.sh
 
 ##HOWTO c4-repack
 
+When your ready to commit your code to the channel4 git repo so you can either submit code to ISHosting or rebuild your server on another machine, first contact your project manager to start a conversation about getting a private github repo from us. This requires you having a github account and have your public SSH keys loaded. We'll then create a private repo for you and send you the details.
+
+Once you've made changes to the system and created new scripts withing the bootstrap environment simply run the repack script. This will pull in files from your system into **~/c4-bootstrap-php/files/....** and package up any special directories like **/var/www/public|private** into tar.gz files.
+
+```bash
+sudo ./repack.sh
+```
+
+Now upload your code to the new repo:
+
+```bash
+cd ~/c4-bootstrap.sh
+git push --mirror git@github.com:channel4/MYREPO.git
+```
+
+**NOTE:** If you are making future changes to the same website on a new server make sure you bootstrap from your new repo thus avoiding having to set everything up again:
+
+```bash
+git clone https://github.com/channel4/MYREPO.git
+```
 
 ##Working Directories
 
