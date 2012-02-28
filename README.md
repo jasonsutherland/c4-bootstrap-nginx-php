@@ -23,7 +23,7 @@ git clone https://github.com/channel4/c4-bootstrap.git
 
 ```bash
 cd c4-bootstrap-php
-sudo ../bootstrap.sh
+sudo ./bootstrap.sh
 ```
 
 5. Now you can make changes to the system by following the working directories and scripting guides.
