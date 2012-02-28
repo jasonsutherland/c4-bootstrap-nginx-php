@@ -1,7 +1,7 @@
 #!/bin/bash
 
 supported_dist="Ubuntu"
-supported_vers="12.04"
+supported_vers="10.04"
 
 working_dirs=( /var/www/public/ /var/www/private/ /etc/cron.d/ /etc/php5/ /etc/nginx/ )
 files_tmp="files/var/tmp/c4-bootstrap-php"
@@ -48,8 +48,7 @@ function suck_files {
             then
                 sudo tar cvfz ${files_tmp}/ENV.tgz /var/www/private/*
             else
-                echo moo
-                sudo cp -Rfp ${var} files${var}
+                sudo cp -Rfp ${var}/* files${var}/
             fi
         else
             echo "### WARNING: Directory does not exist! ###"
