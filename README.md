@@ -56,7 +56,7 @@ Any tweaks to the NGINX settings are made here. There is also a example HTTPS co
 You can tweak php.ini here, as this setup uses fpm please edit the file in **/etc/php5/fpm/**
 
 ##Scripting
-If you wish to install new dependancies or preform extra options on the server at boottime we recomend you build a script. For installing new dependancies using apt-get the use **~/c4-bootstrap-php/scripts/pre.d/** folder and then re-run **./bootstrap.sh**. Doing this will ensure that when a clean system is built the dependancies get installed at bootstrap. If you wish to preform actions on files after your environment is setup use the **~/c4-bootstrap-php/scripts/post.d/** folder.
+If you wish to install new dependancies or preform extra actions on the server at boot time we recomend you build a script. For installing new dependancies using **apt-get** use **~/c4-bootstrap-php/scripts/pre.d/XX-mynewscript.sh** and then re-run **./bootstrap.sh** to install those dependancies. Doing this will ensure that when a clean system is built the dependancies get installed at bootstrap. If you wish to preform actions on files/folders or bounce a service after your environment is setup use the **~/c4-bootstrap-php/scripts/post.d/** folder.
 
 An example script to install new packages would be:
 
