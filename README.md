@@ -16,7 +16,7 @@ sudo apt-get install git-core
 3. Clone the c4-bootstrap-php repo onto your server:
 
 ```bash
-git clone https://github.com/channel4/c4-bootstrap.git
+git clone https://github.com/channel4/c4-bootstrap-php.git
 ```
 
 4. Now run the bootstrap script to set up the environment:
