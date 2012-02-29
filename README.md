@@ -41,6 +41,8 @@ git config --global user.email "your_email@youremail.com"
 ```
 You only need to do the following if you've cloned from c4-bootstrap-php master, if you've checked out your own repo this isn't needed:
 
+**NOTE:** Swap MYREPO.git for the name supplied by Channel 4 Operations!
+
 ```bash
 git push --mirror git@github.com:channel4/**MYREPO.git**
 git remote set-url origin git@github.com:channel4/**MYREPO.git**
@@ -55,7 +57,11 @@ sudo ./repack.sh
 **NOTE:** If you are making future changes to the same website on a new server make sure you bootstrap from your new repo thus avoiding having to set everything up again:
 
 ```bash
-git clone https://github.com/channel4/**MYREPO.git**
+git clone git@github.com:channel4/**MYREPO.git**
+cd **MYREPO**
+sudo ./bootstrap.sh
+## Make your Changes
+sudo ./repack.sh
 ```
 
 ##Working Directories
