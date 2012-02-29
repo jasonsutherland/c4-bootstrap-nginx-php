@@ -38,7 +38,12 @@ Change your repo details to the one supplied by Channel 4 Operations:
 cd ~/c4-bootstrap-php
 git config --global user.name "Firstname Lastname"
 git config --global user.email "your_email@youremail.com"
+```
+You only need to do the following if you've cloned from c4-bootstrap-php master, if you've checked out your own repo this isn't needed:
+
+```bash
 git push --mirror git@github.com:channel4/MYREPO.git
+git remote set-url origin git@github.com:channel4/MYREPO.git
 ```
 
 Once you've made changes to the system and created new scripts withing the bootstrap environment simply run the repack script. This will pull in files from your system into **~/c4-bootstrap-php/files/....** and package up any special directories like **/var/www/public|private** into tar.gz files.
