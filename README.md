@@ -1,6 +1,6 @@
 #c4-bootstrap-php
 
-A simple way to deploy a NGINX + PHP5-FPM environment to replicate a channel4.com microsite, for testing your deploys.
+A simple way to deploy a NGINX + PHP5-FPM environment to replicate a channel4.com microsite, for testing your deploys. Built on c4-bootstrap lightweight systems management tool.
 
 ##HOWTO c4-bootstrap
 
