@@ -1,6 +1,6 @@
 # vim: set ts=4:
 fastcgi_cache_key         "$scheme$host$uri$is_args$args";
-fastcgi_cache_path        /mnt/www/c4-bootstrap-php/cache levels=1:2 inactive=24h keys_zone=disk_cache:1024m;
+fastcgi_cache_path        /mnt/www/c4-bootstrap/cache levels=1:2 inactive=24h keys_zone=disk_cache:1024m;
 
 upstream php5fpm {
         server localhost:9000 max_fails=2 fail_timeout=10;
@@ -15,18 +15,17 @@ log_format cache '$remote_addr - $remote_user [$time_local] '
 
 root /var/www/public/;
 
-access_log              /mnt/www/c4-bootstrap-php/logs/nginx-access.log;
-error_log               /mnt/www/c4-bootstrap-php/logs/nginx-error.log;
+access_log              /mnt/www/c4-bootstrap/logs/nginx-access.log;
+error_log               /mnt/www/c4-bootstrap/logs/nginx-error.log;
 open_log_file_cache     max=1000 inactive=20s min_uses=2 valid=1m;
 
 server {
         listen   80;
 
-        root /var/www/public/;
         index index.html index.htm index.php;
 
         location / {
-                try_files $uri /index.html;
+            # Default location
         }
 
         # Pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
@@ -44,7 +43,7 @@ server {
             fastcgi_cache_use_stale   updating invalid_header timeout error;
             fastcgi_cache_valid       200 301 302       1m;
             fastcgi_cache_valid       404               1m;
-            access_log                /mnt/www/c4-bootstrap-php/logs/nginx-cache.log cache;
+            access_log                /mnt/www/c4-bootstrap/logs/nginx-cache.log cache;
         }
 
         # NGINX does not use .htaccess file so block them
@@ -64,11 +63,9 @@ server {
 #        ssl_certificate      /etc/nginx/ssl/<YOUR_CERT>.crt;
 #        ssl_certificate_key  /etc/nginx/ssl/<YOUR_KEY>.key;
 #
-#        root /var/www/public/;
 #        index index.html index.htm index.php;
 #
 #        location / {
-#                try_files $uri /index.html;
 #        }
 #
 #        # Pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
@@ -86,7 +83,7 @@ server {
 #            fastcgi_cache_use_stale   updating invalid_header timeout error;
 #            fastcgi_cache_valid       200 301 302       1m;
 #            fastcgi_cache_valid       404               1m;
-#            access_log                /mnt/www/c4-bootstrap-php/logs/nginx-cache.log cache;
+#            access_log                /mnt/www/c4-bootstrap/logs/nginx-cache.log cache;
 #        }
 #
 #        # NGINX does not use .htaccess file so block them
