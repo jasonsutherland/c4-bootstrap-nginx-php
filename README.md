@@ -22,6 +22,8 @@ These should be standard:
 
 ##HOWTO bootstrap
 
+bootstraping your server will install the requested environment on your sysetm.
+
 Fire up your Ubuntu server or EC2 instance. These scripts are designed to work on Ubuntu 10.04 LTS!!!!
 
 Now fork this git repo and clone onto your new server:
@@ -41,11 +43,11 @@ On your new server:
 
 You'll see lots of text fly past the screen as the system is setup. Once complete it should be fully up and running.
 
-If you have never run repack.sh when you browse to your URL/IP you'll see an 403 access denied error in the sight. If you've been using repack.sh to track your changes in github then your site will be fully restored and running when you browse to your URL.
+If you have never run repack.sh before, when you browse to your URL/IP you'll see an 403 access denied error in the browser. If you've been using repack.sh to track your changes in github then your site will be fully restored and running when you browse to your URL/IP.
 
 ##HOWTO repack
 
-As you use wordpress the contents of the site may change and so too will the DB. repack.sh is designed to help you track those changes in github.
+While developing your site the contents of the site may change frequently. repack.sh is designed to help you track those changes in github and all you to rebuild the server to a given point in time. Its good practice to use repack.sh regularly to avoid loss of work.
 
 Simply run these commands (remember if you've renamed your rep change these commands):
 
@@ -62,7 +64,7 @@ c4-bootstrap-nginx-php is set up to monitor the following directories:
 
 Changes in these directories will be pulled back into your git repo when running repack. To add more locations just edit the __scripts/repack/working_dirs__ file.
 
-NB : You should set your github repo to private to avoid exposing your passwords in wp-config.php to everyone!
+NB : You should set your github repo to private to avoid exposing your private code and configs to everyone!
 
 ##More info
 
